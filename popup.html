@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="popup.css">
+    </head>
+    <body>
+        <div id="box">
+            <form id="myform-search" method="post" autocomplete="off">
+            <h1>Enter Password</h1>
+            <form>
+              <p>
+                <input type="password" value="" placeholder="Enter Password" id="p" class="password">
+                <button class="unmask" type="button" onclick="toggle()"></button>
+                <button class="enter" type="button" onclick="done()">Enter</button>
+              </p>
+            </form>
+
+          </div>
+          <div id="wrong">
+            <p>Sorry, but the password you entered is incorrect!</p>
+        </div>
+
+            <!--Javascript to show password Box-->
+            <script>
+
+                //Verifies password
+                function done() { 
+    document.getElementById("box").style.display = "none";
+    var password = document.getElementById("p").value;
+    if (password == "12345") {
+       location.replace("index.html");
+    } else {
+        document.getElementById("wrong").style.display = "block";
+    }
+
+};
+
+function toggle() {
+  var x = document.getElementById("p");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+            </script>
+    </body>
+</html>
